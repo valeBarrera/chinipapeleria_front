@@ -1,0 +1,38 @@
+<hr color="#ff0080">
+<div class="container">
+    <h1 style="color: #ff0080;">Planificadores</h1>
+    <hr color="#ff0080">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a style="color: #ff0080;" [routerLink]="['home']">Inicio</a></li>
+            <li class="breadcrumb-item active" [routerLink]="['/planificador']">Planificadores</li>
+        </ol>
+    </nav>
+    <div class="container col-lg-12">
+        <div class="card-columns">
+            <div class="card" *ngFor="let planificador of planificadores; let i = index">
+                <img class="card-img-top img-fluid mx-auto d-block" src="{{ 'http://127.0.0.1:8000/'+planificador.producto.img }}" style="height: 200px; width: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">{{planificador.producto.nombre}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <b>Color Espiral: </b>{{planificador.colorespiral.color}}
+                        <span class="badge badge-secondary" style="-webkit-text-stroke: 0.8px black; border:0.8px black solid;" [ngStyle]="{'background-color':'#'+planificador.colorespiral.colorrgb}">color</span>
+
+                    </li>
+                    <li class="list-group-item"><b>Cantidad de Hojas: </b>{{planificador.cantidad_hojas}}</li>
+                    <li class="list-group-item"><b>Precio: </b>${{planificador.producto.precio}}</li>
+
+                </ul>
+                <div class="card-body">
+                    <button type="button" class="btn btn-outline-primary btn-block" [routerLink]="['diseñar', planificador.id]">Ver Mas</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

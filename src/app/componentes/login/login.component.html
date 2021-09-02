@@ -1,0 +1,31 @@
+<div class="container mt-5 col-7 ">
+    <div class="card text-center ">
+        <div class="card-body " style="background-color: white ; border-color: #ff0080;">
+
+            <form class="form-signin " (ngSubmit)="guardar(l)" #l="ngForm">
+                <img class="mb-4" src="./assets/img/chinilogo.png" alt="" style="height: 100px; width: auto;">
+                <p>Crea una cuenta con nosotros para que puedas<br>comprar nuestros productos exclusivos y seas<br> un Chinicliente.</p>
+                <div class="container">
+                    <input type="email" id="inputEmail" #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" required class="form-control text-center  col-6" name="email" [(ngModel)]="login.email" placeholder="Email" required autofocus>
+                    <small *ngIf="email.invalid && email.touched" class="form-text text-danger">El email es requerido</small>
+                </div>
+                <div class="container">
+                    <input type="password" id="inputPassword" #password="ngModel" required [class.is-invalid]="password.invalid && password.touched" class="form-control text-center col-6 align-content-center mt-2" name="password" [(ngModel)]="login.password" placeholder="Contraseña"
+                        required>
+                    <small *ngIf="password.invalid && password.touched" class="form-text text-danger">La contraseña es requerida</small>
+                </div>
+                <div class="checkbox mb-3 mt-3">
+                    <label>
+                      <input  [(ngModel)]="recordarme"  name="recordarme" type="checkbox" value="recordar"> Recordarme
+                    </label>
+                </div>
+                <div>
+                    <button class="btn  btn-primary btn-block col-6" style="background-color: #ff0080; border: white;" type="submit">Ingresar</button>
+
+                </div>
+                <label for="" class="mt-3">¿Olvidaste tu Contraseña?</label> <br>
+                <a [routerLink]="['/registrar']">Registrarse</a>
+            </form>
+        </div>
+    </div>
+</div>
